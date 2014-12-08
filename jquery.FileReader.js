@@ -72,14 +72,14 @@
 
 			clickableElement.css('z-index', 0)
 				.mouseover(function (e) {
+					FileAPIProxy.container
+						.height(clickableElement.outerHeight())
+						.width(clickableElement.outerWidth())
+						.css(clickableElement.offset());
 					if (inputId !== currentTarget) {
 						e = e || window.event;
 						currentTarget = inputId;
 						FileAPIProxy.swfObject.mouseover(clickableElement.attr('id'));
-						FileAPIProxy.container
-							.height(clickableElement.outerHeight())
-							.width(clickableElement.outerWidth())
-							.css(clickableElement.offset());
 					}
 				})
 				.click(function(e) {
